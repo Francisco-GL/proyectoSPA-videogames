@@ -4,21 +4,25 @@
     padding: 40px 50px;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
-    color: #cb0909;
+    color: #2127e8;
     letter-spacing: .05em;
     text-shadow:
         4px 4px 0px #d5d5d5,
-        7px 7px 0px rgba(163, 13, 13, 0.2);
+        7px 7px 0px rgba(31, 8, 162, 0.241);
 }
 
 hr {
-    color: rgb(212, 120, 0);
+    color: rgb(0, 247, 255);
     border: 2px solid;
 }
 
 hr.footer {
-    color: rgb(41, 181, 240);
+    color: rgb(255, 10, 10);
     border: 2px solid;
+}
+
+footer {
+    padding: 20px;
 }
 
 ul > li {

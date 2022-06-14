@@ -5,13 +5,16 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/ayuda']">Ayuda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/about']">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -22,11 +25,13 @@
                         <span class="dropdown-item">
                             Tamaño del Font
                             <div>
-                                <button (click)="changeSizeFont('+')" class="font-control btn btn-primary" id="font-up">A
+                                <button (click)="changeSizeFont('+')" class="font-control btn btn-primary"
+                                    id="font-up">A
                                     <sup>+</sup></button>
                                 <button (click)="changeSizeFont('=')" class="font-control btn btn-primary"
                                     id="font-up">A</button>
-                                <button (click)="changeSizeFont('-')" class="font-control btn btn-primary" id="font-down">A
+                                <button (click)="changeSizeFont('-')" class="font-control btn btn-primary"
+                                    id="font-down">A
                                     <sup>-</sup></button>
                             </div>
                         </span>
@@ -44,16 +49,38 @@
                         <span class="dropdown-item">
                             Fuente legible
                             <div>
-                                <button (click)="changeFont('true')" class="color-control btn btn-primary"><b>Yes</b></button>
+                                <button (click)="changeFont('true')"
+                                    class="color-control btn btn-primary"><b>Yes</b></button>
                                 <button (click)="changeFont('false')" class="color-control btn btn-primary">No</button>
                             </div>
                         </span>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/{{Op.toLowerCase( )}}']">{{Op}}</a>
+                </li>
             </ul>
-        </div>
-        <div class="form-inline my-2 my-lg-0 my-sm-0">
-            <a class="nav-link" style="cursor: pointer; color: white;" [routerLink]="['/login']">Iniciar Sesión</a>
+            
+            <div [ngSwitch]="userType">
+                <div *ngSwitchCase="'default'" class="form-inline my-2 my-lg-0 my-sm-0 ">
+                    <!-- <a class="nav-link" style="cursor: pointer; color: white;" [routerLink]="['/login']">Iniciar Sesión</a> -->
+                    <button class="btn btn-sm btn-outline-info" type="button" [routerLink]="['/login']">Iniciar
+                        Sesión</button>
+                </div>
+                <div *ngSwitchCase="'user'" class="form-inline my-2 my-lg-0 my-sm-0">
+                    <button class="btn btn-sm btn-outline-danger" type="button" [routerLink]="['/login']">Cerrar
+                        Sesión</button>
+                </div>
+                <div *ngSwitchCase="'admin'" class="form-inline my-2 my-lg-0 my-sm-0">
+                    <button class="btn btn-sm btn-outline-warning" type="button" [routerLink]="['/login']">Cerrar
+                        Sesión</button>
+                </div>
+                <div *ngSwitchDefault class="form-inline my-2 my-lg-0 my-sm-0 ">
+                    <!-- <a class="nav-link" style="cursor: pointer; color: white;" [routerLink]="['/login']">Iniciar Sesión</a> -->
+                    <button class="btn btn-sm btn-outline-info" type="button" [routerLink]="['/login']">Iniciar
+                        Sesión</button>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

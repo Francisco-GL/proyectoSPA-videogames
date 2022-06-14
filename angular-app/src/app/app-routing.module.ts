@@ -5,12 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './consultas/contacto.component';
 import { LoginComponent } from './login/login.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'contacto', component: ContactoComponent},
   { path: 'login', component: LoginComponent},
   { path: 'ayuda', component: AyudaComponent},
+  { path: 'about', component: AboutComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home'}
 ];
 

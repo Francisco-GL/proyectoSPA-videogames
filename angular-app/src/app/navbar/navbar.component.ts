@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  fontSize = 14;
+  userType:string=''; //variable donde recibirá la validacion de Login al checar en la BD
+  fontSize = 18;
   template = '';
 
   info: any;
@@ -18,10 +19,23 @@ export class NavbarComponent implements OnInit {
     tema: 'white'
   }
 
+  Op = '';
+
   constructor() {
     this.info = localStorage.getItem('configuracion');
     if (this.info === null) {
       localStorage.setItem('configuracion', JSON.stringify(this.config));
+    }
+  }
+
+  validarUser () {
+    // 
+    if(this.userType === 'default'){
+      this.Op = '';
+    }else if(this.userType === 'user'){
+      this.Op = 'Algo'
+    }else if(this.userType === 'admin'){
+      this.Op = 'Consultas'
     }
   }
 
@@ -44,11 +58,11 @@ export class NavbarComponent implements OnInit {
   }
 
   changeSizeFont(operator: any) {
-    this.objects.fontSize = '14';
+    this.objects.fontSize = '18';
     if (operator === '+') {
       this.fontSize++;
     } else if (operator === '=') {
-      this.fontSize = 14;
+      this.fontSize = 18;
     } else if (operator === '-') {
       this.fontSize--;
     }
@@ -99,6 +113,7 @@ export class NavbarComponent implements OnInit {
     //   document.getElementsByTagName('body')[0].style.color = 'black';
     //   document.getElementsByTagName('a')[0].style.color = 'white';
     // }
+    this.validarUser();
     document.getElementsByTagName('a')[0].style.fontFamily = 'Arial';
     document.getElementsByTagName('body')[0].style.fontSize = `${this.fontSize}px`;
     document.getElementsByTagName('body')[0].style.backgroundColor = 'white';

@@ -10,6 +10,8 @@ import { AyudaComponent } from './ayuda/ayuda.component';
 import { LoginComponent } from './login/login.component';
 import { ContactoComponent } from './consultas/contacto.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DomseguroPipe } from './domseguro.pipe';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AyudaComponent,
     LoginComponent,
     ContactoComponent,
-    NavbarComponent
+    NavbarComponent,
+    DomseguroPipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
