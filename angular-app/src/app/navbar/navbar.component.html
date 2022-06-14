@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/icono.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/ayuda']">Ayuda</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        &#9855;
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <span class="dropdown-item">
+                            Tamaño del Font
+                            <div>
+                                <button (click)="changeSizeFont('+')" class="font-control btn btn-primary" id="font-up">A
+                                    <sup>+</sup></button>
+                                <button (click)="changeSizeFont('=')" class="font-control btn btn-primary"
+                                    id="font-up">A</button>
+                                <button (click)="changeSizeFont('-')" class="font-control btn btn-primary" id="font-down">A
+                                    <sup>-</sup></button>
+                            </div>
+                        </span>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item">
+                            Tema
+                            <div>
+                                <button (click)="changeTemplateColor('dark')"
+                                    class="color-control btn btn-primary">&#x263e;</button>
+                                <button (click)="changeTemplateColor('white')"
+                                    class="color-control btn btn-primary">&#x263c;</button>
+                            </div>
+                        </span>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item">
+                            Fuente legible
+                            <div>
+                                <button (click)="changeFont('true')" class="color-control btn btn-primary"><b>Yes</b></button>
+                                <button (click)="changeFont('false')" class="color-control btn btn-primary">No</button>
+                            </div>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="form-inline my-2 my-lg-0 my-sm-0">
+            <a class="nav-link" style="cursor: pointer; color: white;" [routerLink]="['/login']">Iniciar Sesión</a>
+        </div>
+    </div>
+</nav>
