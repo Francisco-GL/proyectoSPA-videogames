@@ -1,1 +1,37 @@
-<p>login works!</p>
+<h2 class="title align">Iniciar Sesión</h2>
+<hr>
+<br>
+<div class="principal container">
+    <div class="card-header text-center">
+        Ingresa tus datos
+    </div>
+    <div class="card-body">
+        <form class="container">
+            <div class="form-group">
+                <label for="cuenta">Cuenta</label>
+                <input #cuenta type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input #pass type="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input #pass type="password" class="form-control">
+            </div><br>
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-outline-info" (click)="validar(cuenta.value, pass.value)"
+                    [routerLink]=[validation]>Submit</a>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-center">
+        <p>
+            ¿Aún no estas registrado?
+        </p>
+        <a class="btn btn-outline-success" [routerLink]="['/registro']">Registrate!</a>
+    </div>
+</div>
+<br>
+<hr>
+<br>

@@ -26,32 +26,32 @@
                             Tamaño del Font
                             <div>
                                 <button (click)="changeSizeFont('+')" class="font-control btn btn-primary"
-                                    id="font-up">A
+                                    id="font-up" style="border: 0.5px solid black;">A
                                     <sup>+</sup></button>
                                 <button (click)="changeSizeFont('=')" class="font-control btn btn-primary"
-                                    id="font-up">A</button>
+                                    id="font-up" style="border: 0.5px solid black;">A</button>
                                 <button (click)="changeSizeFont('-')" class="font-control btn btn-primary"
-                                    id="font-down">A
+                                    id="font-down" style="border: 0.5px solid black;">A
                                     <sup>-</sup></button>
                             </div>
                         </span>
                         <div class="dropdown-divider"></div>
                         <span class="dropdown-item">
                             Tema
-                            <div>
+                            <div class="d-flex justify-content-evenly">
                                 <button (click)="changeTemplateColor('dark')"
-                                    class="color-control btn btn-primary">&#x263e;</button>
+                                    class="color-control btn btn-primary" style="border: 1px solid black;">&#x263e;</button>
                                 <button (click)="changeTemplateColor('white')"
-                                    class="color-control btn btn-primary">&#x263c;</button>
+                                    class="color-control btn btn-primary" style="border: 1px solid black;">&#x263c;</button>
                             </div>
                         </span>
                         <div class="dropdown-divider"></div>
                         <span class="dropdown-item">
                             Fuente legible
-                            <div>
+                            <div class="d-flex justify-content-evenly">
                                 <button (click)="changeFont('true')"
-                                    class="color-control btn btn-primary"><b>Yes</b></button>
-                                <button (click)="changeFont('false')" class="color-control btn btn-primary">No</button>
+                                    class="color-control btn btn-primary" style="border: 1px solid black;"><b>Yes</b></button>
+                                <button (click)="changeFont('false')" class="color-control btn btn-primary" style="border: 1px solid black;">No</button>
                             </div>
                         </span>
                     </div>

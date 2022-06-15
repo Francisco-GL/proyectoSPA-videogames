@@ -12,6 +12,7 @@ import { ContactoComponent } from './consultas/contacto.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { AboutComponent } from './about/about.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     ContactoComponent,
     NavbarComponent,
     DomseguroPipe,
-    AboutComponent
+    AboutComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+.title {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 60px;
+    padding: 40px 50px;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #ef9611;
+    letter-spacing: .05em;
+    text-shadow:
+        4px 4px 0px #d5d5d5,
+        7px 7px 0px rgba(227, 44, 16, 0.241);
+}
+
+hr {
+    color: rgb(242, 234, 0);
+    border: 2px solid;
+}
+
+.align {
+    text-align: center;
+}
+
+@media(max-width: 792px) {
+    .title{
+        font-size: 35px;
+    }
+}

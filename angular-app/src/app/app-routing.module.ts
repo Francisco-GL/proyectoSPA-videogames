@@ -6,6 +6,7 @@ import { ContactoComponent } from './consultas/contacto.component';
 import { LoginComponent } from './login/login.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { AboutComponent } from './about/about.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'ayuda', component: AyudaComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'registro', component: RegistroComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home'}
 ];
 
