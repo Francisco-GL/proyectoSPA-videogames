@@ -44,6 +44,8 @@ export class AdminComponent implements OnInit {
     cuenta: new FormControl('', Validators.required)
   })
 
+  database = getDatabase();
+
 
   constructor(public authService: AuthService) { }
 
@@ -68,15 +70,13 @@ export class AdminComponent implements OnInit {
 
   eliminar(value: any){
     //remove data
-    var database = getDatabase();
-    remove(ref(database, 'usuarios/' + value.cuenta));
+    remove(ref(this.database, 'usuarios/' + value.cuenta));
     alert("Usuario: " + value.cuenta + ", eliminado correctamente!");
   }
 
   consultar(value: any){
     // read data
-    var database = getDatabase();
-    const starCountRef = ref(database, 'usuarios/' + value.cuenta);
+    const starCountRef = ref(this.database, 'usuarios/' + value.cuenta);
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       this.nombre = data.nombre;
@@ -89,8 +89,7 @@ export class AdminComponent implements OnInit {
 
   buscar(value: any){
     // read data
-    var database = getDatabase();
-    const starCountRef = ref(database, 'usuarios/' + value.cuenta);
+    const starCountRef = ref(this.database, 'usuarios/' + value.cuenta);
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       this.nombre = data.nombre;
@@ -103,9 +102,17 @@ export class AdminComponent implements OnInit {
 
   modificar(value: any){
     // update data
-    var database = getDatabase();
-    update(ref(database, 'users/' + value.cuenta), {
-      // username: value.username,
+    alert("holaaaaa");
+    // update(ref(this.database, 'usuarios/' + value.cuenta), {
+    //   // username: value.username,
+    //   nombre: value.nombre,
+    //   mail: value.mail,
+    //   cuenta: value.cuenta,
+    //   contra: value.contra,
+    //   contra2: value.contra2,
+    //   tipoUsuario: value.tipoUsuario
+    // });
+    set(ref(this.database, 'usuarios/' + value.cuenta), {
       nombre: value.nombre,
       mail: value.mail,
       cuenta: value.cuenta,
@@ -113,6 +120,7 @@ export class AdminComponent implements OnInit {
       contra2: value.contra2,
       tipoUsuario: value.tipoUsuario
     });
+    window.location.reload();
   }
 
 
