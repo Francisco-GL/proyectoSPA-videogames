@@ -1,1 +1,439 @@
-<p>admin works!</p>
+<h2 class="title align">Registrar Usuario</h2>
+
+<div class="principal container">
+  <div class="card-header text-center">Ingresa los datos</div>
+  <form
+    [formGroup]="formularioContacto"
+    (ngSubmit)="registrar(formularioContacto.value)"
+    class="conteiner"
+  >
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          formControlName="nombre"
+          class="form-control"
+          required
+        />
+        <span
+          *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']"
+        >
+          (El nombre no puede quedar vacío)
+        </span>
+        <span
+          *ngIf="this.formularioContacto.get('nombre')?.errors?.['minlength']"
+        >
+          (Debe tener como mínimo 10 caracteres)
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="Mail">Mail</label>
+        <input
+          #userName
+          type="text"
+          formControlName="mail"
+          class="form-control"
+        />
+        <span *ngIf="this.formularioContacto.get('mail')?.errors?.['required']">
+          (El mail no puede quedar vacío)
+        </span>
+        <span *ngIf="this.formularioContacto.get('mail')?.errors?.['email']">
+          (El mail no es válido)
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="cuenta">Cuenta</label>
+        <input
+          type="text"
+          formControlName="cuenta"
+          class="form-control"
+          required
+        />
+        <span
+          *ngIf="this.formularioContacto.get('cuenta')?.errors?.['required']"
+        >
+          (La cuenta no puede quedar vacia)
+        </span>
+        <span
+          *ngIf="this.formularioContacto.get('cuenta')?.errors?.['minlength']"
+        >
+          (Debe tener como mínimo 10 caracteres)
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="contra">Contraseña</label>
+        <input
+          #userPassword
+          type="text"
+          formControlName="contra"
+          class="form-control"
+          required
+        />
+        <span
+          *ngIf="this.formularioContacto.get('contra')?.errors?.['required']"
+        >
+          (La contraseña no puede quedar vacía)
+        </span>
+        <span
+          *ngIf="this.formularioContacto.get('contra')?.errors?.['minlength']"
+        >
+          (Debe tener como mínimo 10 caracteres)
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="revalidar">Revalidar Contraseña</label>
+        <input
+          type="text"
+          formControlName="contra2"
+          class="form-control"
+          required
+        />
+        <span
+          *ngIf="this.formularioContacto.get('contra2')?.errors?.['required']"
+        >
+          (La contraseña no puede quedar vacía)
+        </span>
+        <span
+          *ngIf="
+            this.formularioContacto.get('contra2')?.value !=
+            this.formularioContacto.get('contra')?.value
+          "
+        >
+          (Las contraseñas deben coincidir)
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="usuario">Tipo de Usuario</label>
+        <input
+          type="text"
+          formControlName="tipoUsuario"
+          class="form-control"
+          required
+        />
+        <span
+          *ngIf="this.formularioContacto.get('tipoUsuario')?.errors?.['required']"
+        >
+          (El tipo de usuario no puede quedar vacio)
+        </span>
+      </div>
+      <br />
+    </div>
+    <div class="d-flex justify-content-end">
+      <input
+        type="submit"
+        class="btn btn-outline-info"
+        value="Confirmar"
+        class="btn btn-outline-success"
+        (click)="authService.SignUp(userName.value, userPassword.value)"
+      />
+    </div>
+    <br />
+    <br />
+  </form>
+</div>
+
+<h2 class="title align">Eliminar Usuario</h2>
+
+<div class="principal container">
+  <div class="card-header text-center">Ingresa los datos</div>
+  <form
+    [formGroup]="formularioEliminar"
+    (ngSubmit)="eliminar(formularioEliminar.value)"
+    class="conteiner"
+  >
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nombre">Cuenta</label>
+        <input
+          type="text"
+          formControlName="cuenta"
+          class="form-control"
+          required
+        />
+      </div>
+      <br />
+      <div class="d-flex justify-content-end">
+        <input
+          type="submit"
+          class="btn btn-outline-info"
+          value="Confirmar"
+          class="btn btn-outline-success"
+        />
+      </div>
+    </div>
+    <br />
+    <br />
+  </form>
+</div>
+
+<h2 class="title align">Consultar Usuario</h2>
+
+<div class="principal container">
+  <div class="card-header text-center">Ingresa los datos</div>
+  <form
+    [formGroup]="formularioEliminar"
+    (ngSubmit)="consultar(formularioEliminar.value)"
+    class="conteiner"
+  >
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nombre">Cuenta</label>
+        <input
+          type="text"
+          formControlName="cuenta"
+          class="form-control"
+          required
+        />
+      </div>
+      <br />
+      <div class="d-flex justify-content-end">
+        <input
+          type="submit"
+          class="btn btn-outline-info"
+          value="Confirmar"
+          class="btn btn-outline-success"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        />
+      </div>
+    </div>
+    <br />
+    <br />
+  </form>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">
+            Datos de {{ cuenta }}
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>Nombre: {{ nombre }}</p>
+          <p>Cuenta: {{ cuenta }}</p>
+          <p>Correo: {{ mail }}</p>
+          <p>Contraseña: {{ contra }}</p>
+          <p>Tipo de Usuario: {{ tipoUsuario }}</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="title align">Modificar Usuario</h2>
+
+<div class="principal container">
+  <div class="card-header text-center">Buscar</div>
+  <form
+    [formGroup]="formularioEliminar"
+    (ngSubmit)="buscar(formularioEliminar.value)"
+    class="conteiner"
+  >
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nombre">Cuenta</label>
+        <input
+          type="text"
+          formControlName="cuenta"
+          class="form-control"
+          required
+        />
+      </div>
+      <br />
+      <div class="d-flex justify-content-end">
+        <input
+          type="submit"
+          class="btn btn-outline-info"
+          value="Buscar"
+          class="btn btn-outline-success"
+        />
+      </div>
+    </div>
+    <br />
+    <br />
+  </form>
+</div>
+  <div class="principal container">
+    <div class="card-header text-center">Modifica los datos</div>
+    <form
+      [formGroup]="formularioContacto"
+      (ngSubmit)="modificar(formularioContacto.value)"
+      class="conteiner"
+    >
+      <div class="card-body">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            value="{{ nombre }}"
+            formControlName="nombre"
+            class="form-control"
+            required
+          />
+          <span
+            *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']"
+          >
+            (El nombre no puede quedar vacío)
+          </span>
+          <span
+            *ngIf="this.formularioContacto.get('nombre')?.errors?.['minlength']"
+          >
+            (Debe tener como mínimo 10 caracteres)
+          </span>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="Mail">Mail</label>
+          <input
+            #userName
+            type="text"
+            value="{{ mail }}"
+            formControlName="mail"
+            class="form-control"
+          />
+          <span
+            *ngIf="this.formularioContacto.get('mail')?.errors?.['required']"
+          >
+            (El mail no puede quedar vacío)
+          </span>
+          <span *ngIf="this.formularioContacto.get('mail')?.errors?.['email']">
+            (El mail no es válido)
+          </span>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="cuenta">Cuenta</label>
+          <input
+            type="text"
+            value="{{ cuenta }}"
+            formControlName="cuenta"
+            class="form-control"
+            required
+          />
+          <span
+            *ngIf="this.formularioContacto.get('cuenta')?.errors?.['required']"
+          >
+            (La cuenta no puede quedar vacia)
+          </span>
+          <span
+            *ngIf="this.formularioContacto.get('cuenta')?.errors?.['minlength']"
+          >
+            (Debe tener como mínimo 10 caracteres)
+          </span>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="contra">Contraseña</label>
+          <input
+            #userPassword
+            type="text"
+            value="{{ contra }}"
+            formControlName="contra"
+            class="form-control"
+            required
+          />
+          <span
+            *ngIf="this.formularioContacto.get('contra')?.errors?.['required']"
+          >
+            (La contraseña no puede quedar vacía)
+          </span>
+          <span
+            *ngIf="this.formularioContacto.get('contra')?.errors?.['minlength']"
+          >
+            (Debe tener como mínimo 10 caracteres)
+          </span>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="revalidar">Revalidar Contraseña</label>
+          <input
+            type="text"
+            formControlName="contra2"
+            class="form-control"
+            required
+          />
+          <span
+            *ngIf="this.formularioContacto.get('contra2')?.errors?.['required']"
+          >
+            (La contraseña no puede quedar vacía)
+          </span>
+          <span
+            *ngIf="
+              this.formularioContacto.get('contra2')?.value !=
+              this.formularioContacto.get('contra')?.value
+            "
+          >
+            (Las contraseñas deben coincidir)
+          </span>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="usuario">Tipo de Usuario</label>
+          <input
+            type="text"
+            value="{{ tipoUsuario }}"
+            formControlName="tipoUsuario"
+            class="form-control"
+            required
+          />
+          <span
+            *ngIf="this.formularioContacto.get('tipoUsuario')?.errors?.['required']"
+          >
+            (El tipo de usuario no puede quedar vacio)
+          </span>
+        </div>
+        <br />
+      </div>
+      <div class="d-flex justify-content-end">
+        <input
+          type="submit"
+          class="btn btn-outline-info"
+          value="Modificar"
+          class="btn btn-outline-success"
+        />
+      </div>
+      <br />
+      <br />
+    </form>
+  </div>
