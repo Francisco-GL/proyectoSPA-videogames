@@ -1,1 +1,12 @@
-<p>configuracion works!</p>
+<div class="container">
+    <div class="card text-center">
+        <h4 class="card-header">Obtener Datos de Cuenta por QR-Code</h4>
+        <div class="card-body">
+            <h5 class="card-title">{{message}}</h5>
+            <ngx-qrcode [elementType]="data.type" [value]="data.value">
+            </ngx-qrcode>
+            <button class="btn btn-primary" (click)="obtenerData()">Generate</button>
+        </div>
+    </div>
+</div>
+<!-- <button class="btn btn-danger" (click)="obtenerData()">Click me</button> -->

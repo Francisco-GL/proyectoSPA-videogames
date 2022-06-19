@@ -24,6 +24,8 @@ import { AuthService } from "./shared/services/auth.service";
 import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxQRCodeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

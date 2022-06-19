@@ -8,9 +8,14 @@ export class CorreoService {
 
   constructor(public httpClient: HttpClient) {}
 
-  rootURL = 'http://localhost:3000/contacto';
+  rootURL = '/contacto';
 
   sendEmail(params:any) {
     return this.httpClient.post(this.rootURL,params);
+  }
+
+  getData(cuenta:string){
+    const ruta = '/configuracion/';
+    return this.httpClient.get(ruta+cuenta);
   }
 }
