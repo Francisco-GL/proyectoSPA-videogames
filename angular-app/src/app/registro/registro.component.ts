@@ -48,7 +48,8 @@ export class RegistroComponent implements OnInit {
       mail: value.mail,
       cuenta: value.cuenta,
       contra: value.contra,
-      contra2: value.contra2
+      contra2: value.contra2,
+      tipoUsuario: "registrada"
     });
     alert('Producto Registrado!');
 
