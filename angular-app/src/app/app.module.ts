@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { LoginComponent } from './login/login.component';
-import { ContactoComponent } from './consultas/contacto.component';
+import { ContactoComponent } from './contacto/contacto.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { AboutComponent } from './about/about.component';
