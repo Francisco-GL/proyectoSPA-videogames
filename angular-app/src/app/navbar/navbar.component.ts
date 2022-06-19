@@ -13,12 +13,12 @@ export class NavbarComponent implements OnInit {
   info: any;
   config: Settings[] = [];
   objects: any = {
-    cuenta: localStorage.getItem('user'),
+    cuenta: localStorage.getItem('tipo'),
     font: 'false',
     fontSize: '14',
     tema: 'white'
   }
-
+  name = '';
   Op = '';
 
   constructor() {
@@ -26,10 +26,12 @@ export class NavbarComponent implements OnInit {
     if (this.info === null) {
       localStorage.setItem('configuracion', JSON.stringify(this.config));
     }
+    //this.validarUser();
   }
 
   validarUser () {
-    // 
+    this.userType = (localStorage.getItem('tipo') || "");
+    this.name = (localStorage.getItem('cuenta') || "");
     if(this.userType === 'default'){
       this.Op = '';
     }else if(this.userType === 'user'){
@@ -94,6 +96,12 @@ export class NavbarComponent implements OnInit {
     document.getElementsByTagName('a')[0].style.color = colorFontNav;
   }
 
+  cerrarSesion(){
+    localStorage.setItem('cuenta', "");
+    localStorage.setItem('tipo', "");
+    this.ngOnInit();
+  }
+
   ngOnInit(): void { // MODIFICAR
     // let font, size, template, index;
     // let aux = [];
@@ -119,6 +127,7 @@ export class NavbarComponent implements OnInit {
     document.getElementsByTagName('body')[0].style.backgroundColor = 'white';
     document.getElementsByTagName('body')[0].style.color = 'black';
     document.getElementsByTagName('a')[0].style.color = 'white';
+    
   }
 }
 
