@@ -1,6 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../shared/services/auth.service";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject
+} from '@angular/fire/compat/database';
+import {
+  Database,
+  set,
+  ref,
+  update,
+  onValue,
+  remove,
+  getDatabase,
+} from '@angular/fire/database';
 
 @Component({
   selector: 'app-registro',
@@ -25,8 +39,19 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registrar(){
-    //
+  registrar(value: any){
+    //create data
+    alert(value.nombre);
+    var database = getDatabase();
+    set(ref(database, 'usuarios/' + value.cuenta), {
+      nombre: value.nombre,
+      mail: value.mail,
+      cuenta: value.cuenta,
+      contra: value.contra,
+      contra2: value.contra2
+    });
+    alert('Producto Registrado!');
+
   }
 
 }
