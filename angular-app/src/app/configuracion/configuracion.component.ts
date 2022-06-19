@@ -10,7 +10,7 @@ import { CorreoService } from '../correo.service';
 })
 export class ConfiguracionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private correo: CorreoService) { }
 
   message: string = '';
   cuenta: any;
@@ -37,6 +37,9 @@ export class ConfiguracionComponent implements OnInit {
   //     this.data.value = JSON.stringify(this.cuenta);
   //     this.data.correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   //   });
+    this.correo.getData('fracoxd').subscribe((res:any) => {
+      console.log(res);
+    })
   }
 
   ngOnInit(): void {

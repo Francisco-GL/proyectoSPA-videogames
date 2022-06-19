@@ -25,6 +25,7 @@ import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     NgxQRCodeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
