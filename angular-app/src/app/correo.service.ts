@@ -13,9 +13,8 @@ export class CorreoService {
   sendEmail(params:any) {
     return this.httpClient.post(this.rootURL,params);
   }
-
-  getData(cuenta:string){
-    const ruta = '/configuracion/';
-    return this.httpClient.get(ruta+cuenta);
+  ruta = '/configuracion/';
+  getData(cuenta:any){
+    return this.httpClient.get(this.ruta+cuenta);
   }
 }
