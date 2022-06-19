@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from "./shared/services/auth.service";
 import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
     AboutComponent,
     RegistroComponent,
     ConsultasComponent,
-    ConfiguracionComponent
+    ConfiguracionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
