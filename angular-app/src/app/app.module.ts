@@ -25,6 +25,10 @@ import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { AdminComponent } from './admin/admin.component';
 
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; 
+import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,11 +49,19 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    NgxQRCodeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
