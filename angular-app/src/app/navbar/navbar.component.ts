@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
   userType:string=''; //variable donde recibirá la validacion de Login al checar en la BD
   fontSize = 18;
   template = '';
-
+  
   info: any;
   config: Settings[] = [];
   objects: any = {

@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from "./shared/services/auth.service";
 import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; 
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     RegistroComponent,
     ConsultasComponent,
-    ConfiguracionComponent
+    ConfiguracionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
