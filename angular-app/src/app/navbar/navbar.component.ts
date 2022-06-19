@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
     }else if(this.userType === 'user'){
       this.Op = 'Algo'
     }else if(this.userType === 'admin'){
-      this.Op = 'Consultas'
+      this.Op = 'Admin'
     }
   }
 
