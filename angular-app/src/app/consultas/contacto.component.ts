@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CorreoService } from '../correo.service';
+import * as Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-contacto',
@@ -17,6 +18,7 @@ export class ContactoComponent implements OnInit {
   }
 
   enviar() {
+    // Notiflix.Loading.standard('loading...');
     // let data = {
     //   emai:'TU CORREO AQUI si no el mio pacoo12306@gmail.com',
     //   asunto:this.datos.value.asunto,
@@ -25,6 +27,7 @@ export class ContactoComponent implements OnInit {
 
     // this.correo.sendEmail(data).subscribe((res:any) =>{
     //   console.log(res);
+    //   Notiflix.Loading.remove();
     // })
   }
 
