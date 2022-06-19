@@ -57,7 +57,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/{{Op.toLowerCase( )}}']">{{Op}}</a>
+                    <a class="nav-link" [routerLink]="['{{Op.toLowerCase()}}']">{{Op}}</a>
                 </li>
             </ul>
             
@@ -73,7 +73,8 @@
                         Sesión</button>
                 </div>
                 <div *ngSwitchCase="'admin'" class="form-inline my-2 my-lg-0 my-sm-0">
-                    <button class="btn btn-sm btn-outline-warning" type="button" [routerLink]="['/login']">Cerrar
+                    <a class="nav-link" style="cursor: pointer; color: white;" >{{name}}</a>
+                    <button class="btn btn-sm btn-outline-warning" type="button" (click)="cerrarSesion()">Cerrar
                         Sesión</button>
                 </div>
                 <div *ngSwitchDefault class="form-inline my-2 my-lg-0 my-sm-0 ">

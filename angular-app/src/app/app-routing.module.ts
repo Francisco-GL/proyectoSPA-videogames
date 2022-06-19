@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ConsultasComponent } from './consultas/consultas.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'consultas', component: ConsultasComponent},
   { path: 'configuracion', component: ConfiguracionComponent},
+  { path: 'admin', component: AdminComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home'}
 ];
 
