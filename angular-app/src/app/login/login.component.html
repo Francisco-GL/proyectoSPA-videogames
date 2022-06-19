@@ -9,19 +9,20 @@
         <form class="container">
             <div class="form-group">
                 <label for="cuenta">Cuenta</label>
-                <input #cuenta type="text" class="form-control">
+                <input #userName type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="pass">Password</label>
-                <input #pass type="password" class="form-control">
+                <input #userPassword type="password" class="form-control">
             </div>
-            <div class="form-group">
-                <label for="pass">Password</label>
-                <input #pass type="password" class="form-control">
-            </div><br>
             <div class="d-flex justify-content-end">
-                <a class="btn btn-outline-info" (click)="validar(cuenta.value, pass.value)"
-                    [routerLink]=[validation]>Submit</a>
+                <input
+                    type="button"
+                    class="btn btnPrimary"
+                    value="Ingresar"
+                    type="button" class="btn btn-outline-success"
+                    (click)="authService.SignIn(userName.value, userPassword.value)"
+                />
             </div>
         </form>
     </div>
