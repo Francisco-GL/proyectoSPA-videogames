@@ -47,7 +47,12 @@ export class AdminComponent implements OnInit {
   database = getDatabase();
 
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+    var tipo = (localStorage.getItem('tipo'));
+    if(tipo != 'admin'){
+      window.location.href = 'home';
+    }
+   }
 
   ngOnInit(): void {
   }
