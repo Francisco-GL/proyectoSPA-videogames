@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark" onload="ngOnInit()">
     <div class="container-fluid">
         <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/icono.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -68,7 +68,8 @@
                         Sesión</button>
                 </div>
                 <div *ngSwitchCase="'user'" class="form-inline my-2 my-lg-0 my-sm-0">
-                    <button class="btn btn-sm btn-outline-danger" type="button" [routerLink]="['/login']">Cerrar
+                    <a class="nav-link" style="cursor: pointer; color: white;" >{{name}}</a>
+                    <button class="btn btn-sm btn-outline-danger" type="button" (click)="cerrarSesion()">Cerrar
                         Sesión</button>
                 </div>
                 <div *ngSwitchCase="'admin'" class="form-inline my-2 my-lg-0 my-sm-0">

@@ -49,7 +49,7 @@ export class RegistroComponent implements OnInit {
       cuenta: value.cuenta,
       contra: value.contra,
       contra2: value.contra2,
-      tipoUsuario: "registrada"
+      tipoUsuario: "user"
     });
     alert('Producto Registrado!');
 

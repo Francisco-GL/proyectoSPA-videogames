@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit {
       const data = snapshot.val();
       this.mail = data.mail;
       this.authService.SignIn(this.mail, data.contra);
+      localStorage.setItem('cuenta', cuenta);
+      localStorage.setItem('tipo', data.tipoUsuario);
+      window.location.reload();
+      window.location.href = 'home';
     });
 
   }
