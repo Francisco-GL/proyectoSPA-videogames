@@ -21,6 +21,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { AuthService } from "./shared/services/auth.service";
+import { ConsultasComponent } from './consultas/consultas.component';
+import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AuthService } from "./shared/services/auth.service";
     NavbarComponent,
     DomseguroPipe,
     AboutComponent,
-    RegistroComponent
+    RegistroComponent,
+    ConsultasComponent,
+    ConfiguracionComponent
   ],
   imports: [
     BrowserModule,

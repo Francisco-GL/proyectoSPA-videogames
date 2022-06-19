@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { AboutComponent } from './about/about.component';
 import { RegistroComponent } from './registro/registro.component';
+import { ConsultasComponent } from './consultas/consultas.component';
+import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'ayuda', component: AyudaComponent},
   { path: 'about', component: AboutComponent},
   { path: 'registro', component: RegistroComponent},
+  { path: 'consultas', component: ConsultasComponent},
+  { path: 'configuracion', component: ConfiguracionComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home'}
 ];
 
